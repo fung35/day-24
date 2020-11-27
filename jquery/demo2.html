@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <style>
+        .tab {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid pink;
+        }
+        li {
+            height: 39px;
+            line-height: 39px;
+            list-style: none;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+        .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        .list {
+            border: 1px solid red;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .tab_con div{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <div>
+        <ul class="list">
+            <li class="current">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <div style="display: block">商品介绍</div>
+        <div>规格与包装</div>
+        <div>售后保障</div>
+        <div>商品评价</div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".list li").mouseover(function ()
+         {
+             //添加类
+             $(this).addClass("current");
+             //为其他li移除该类
+             $(this).siblings().removeClass("current");
+             var index = $(this).index();
+             //通过获取的索引筛选到相应的div，将div元素显示
+             $(".tab_con div").eq(index).slideDown();
+             $(".tab_con div").eq(index).siblings().hide()
+        });
+        $(".list li").mouseout(function ()
+        {
+
+            var index = $(this).index();
+            //通过获取的索引筛选到相应的div，将div元素显示
+            $(".tab_con div").eq(index).slideUp();
+            $(".tab_con div").eq(index).siblings().hide()
+        });
+    })
+</script>
+</body>
+</html>

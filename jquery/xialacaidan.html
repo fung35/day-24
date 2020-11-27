@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        .nav li ul{
+            display: none;
+        }
+        .nav li{
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid red;
+        }
+        .nav li ul{
+            padding-left: 0;
+        }
+        .nav li ul li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+    <script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<ul class="nav">
+    <li>
+        <a href="#">微博</a>
+        <ul>
+            <li><a href="#">私信</a> </li>
+            <li><a href="#">评论</a> </li>
+            <li><a href="#">@我</a> </li>
+        </ul>
+    </li>
+</ul>
+<script>
+    /*$(function (){
+        //鼠标经过
+        $('.nav>li').mouseover(function (){
+            //选择li 中的子元素 ul show（）显示元素
+          $(this).children("ul").show();
+        })
+        //鼠标离开
+        $('.nav>li').mouseout(function (){
+            $(this).children("ul").hide();
+        })
+    })*/
+    //第一个function是鼠标经过时的函数，第二个function是鼠标离开时的函数
+    /*$(function () {
+        $(".nav>li").hover(function () {
+            $(this).children("ul").slideDown();
+        },function () {
+            $(this).children("ul").slideUp();
+        })
+    })*/
+    $(function () {
+        $("ul>li").hover(function () {
+            $(this).children("ul").slideToggle();
+        })
+    })
+</script>
+</body>
+</html>

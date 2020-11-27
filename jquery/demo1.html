@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box"></div>
+<button>显示</button>
+<button>隐藏</button>
+<button>切换</button>
+<script>
+    $(function () {
+        $("button").eq(1).click(function () {
+            $(".box1").hide("slow")
+        })
+        $("button").eq(0).click(function () {
+            $(".box1").show("slow")
+        })
+        $("button").eq(2).click(function () {
+            $(".box").toggle("slow")
+        })
+    })
+</script>
+</body>
+</html>
